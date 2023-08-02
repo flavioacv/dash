@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:dash/app/core/constants/routes/app_route.dart';
 import 'package:dash/app/core/extensions/theme_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -30,8 +32,8 @@ class _SplashPageState extends State<SplashPage>
 
     controller.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        await Future.delayed(const Duration(seconds: 1));
         //widget.onFinish();
+        Modular.to.navigate(AppRoute.onboardRoute);
       }
     });
 
@@ -63,7 +65,7 @@ class _SplashPageState extends State<SplashPage>
         ),
         weight: 20,
       ),
-       TweenSequenceItem(
+      TweenSequenceItem(
         tween: Tween<double>(begin: 1, end: 0).chain(
           CurveTween(curve: Curves.linear),
         ),
@@ -91,7 +93,8 @@ class _SplashPageState extends State<SplashPage>
           ),
         ),
         child: Center(
-          child: Transform.scale(scale: pulseAnimation.value,
+          child: Transform.scale(
+            scale: pulseAnimation.value,
             child: Transform.rotate(
                 angle: -rotateAnimation.value * (pi * 2),
                 child: Image.asset('assets/icons/shape.png')),
