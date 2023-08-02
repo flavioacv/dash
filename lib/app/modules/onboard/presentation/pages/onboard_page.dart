@@ -1,5 +1,7 @@
+import 'package:dash/app/core/constants/routes/app_route.dart';
 import 'package:dash/app/core/extensions/theme_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class OnboardPage extends StatefulWidget {
   const OnboardPage({super.key});
@@ -41,7 +43,10 @@ class _OnboardPageState extends State<OnboardPage> {
                       Size(350, 70),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Modular.to
+                        .navigate(AppRoute.onboardRoute + AppRoute.sliderRoute);
+                  },
                   child: Text(
                     'Get Started',
                     style: TextStyle(

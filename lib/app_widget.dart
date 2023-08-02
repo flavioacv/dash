@@ -12,6 +12,7 @@ class AppWidget extends StatefulWidget {
 class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
+    //  Modular.setInitialRoute(AppRoute.onboardRoute + AppRoute.sliderRoute);
     return MaterialApp.router(
       title: 'Dash',
       theme: appTheme,
